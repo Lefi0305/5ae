@@ -1,0 +1,199 @@
+:root{
+  --brand-orange: #d85a10; /* cam theo logo */
+  --brand-blue:   #152a83; /* xanh dương theo logo */
+  --text: #222;
+  --muted: #5a5a5a;
+  --bg: #fffaf5;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family: "Segoe UI",system-ui,Arial,sans-serif;color:var(--text);background:var(--bg)}
+
+
+.site-header{
+  position: sticky; top:0; z-index: 50;
+  background: linear-gradient(90deg,var(--brand-orange),#ffb34d);
+  padding: 12px 20px; box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+.brand-logo{width:46px; height:46px; object-fit:cover; border-radius:12px; background:#fff}
+.brand-text{font-weight:800; letter-spacing:.5px; color:#fff}
+
+.nav a{
+  color:#fff; text-decoration:none; margin:0 10px; font-weight:600; opacity:.95;
+  padding:6px 10px; border-radius:10px; transition: .2s;
+}
+.nav a:hover{background: rgba(255,255,255,.18)}
+.nav .active{background: rgba(255,255,255,.22)}
+.nav .signup{background:#fff;color:var(--brand-blue); margin-left:6px}
+
+
+.hero{
+  position: relative; isolation:isolate;
+  background:
+    radial-gradient(1000px 300px at 10% 0%, rgba(255,255,255,.6), transparent 60%),
+    linear-gradient(135deg, var(--brand-blue) 0%, #1d3bb0 60%);
+  color:#fff; min-height: 55vh; display:grid; place-items:center; text-align:center;
+  padding: 70px 20px 100px;
+}
+.hero-inner h1{font-size: clamp(28px, 5vw, 44px); margin-bottom:10px; font-weight:900}
+.hero-inner p{font-size: clamp(15px, 2.4vw, 18px); opacity:.95; margin-bottom:20px}
+.btn-primary{
+  display:inline-block; background: linear-gradient(90deg,#ffd34a,#ffb025);
+  color:#1d1d1d; padding:12px 22px; border-radius:999px; font-weight:800; text-decoration:none;
+  box-shadow: 0 10px 22px rgba(0,0,0,.25); transform: translateY(0); transition:.2s;
+}
+.btn-primary:hover{transform: translateY(-2px)}
+
+.hero-wave{
+  position:absolute; left:0; right:0; bottom:-1px; height:90px; z-index:-1;
+  background:
+    radial-gradient(60px 18px at 10% 0,#fff0, #fff 70%),
+    radial-gradient(90px 24px at 40% 0,#fff0, #fff 70%),
+    radial-gradient(70px 20px at 70% 0,#fff0, #fff 70%),
+    radial-gradient(110px 28px at 100% 0,#fff0, #fff 70%), #fff;
+}
+
+.highlights{
+  margin:-40px auto 0; padding: 0 18px 40px; max-width:1100px;
+  display:grid; gap:16px; grid-template-columns: repeat(3, 1fr);
+}
+
+.card{
+  background:#fff; border-radius:18px; padding:22px; text-align:center;
+  box-shadow: 0 16px 40px rgba(21,42,131,.12);
+  border: 1px solid rgba(21,42,131,.08);
+}
+.card h3{color:var(--brand-blue); margin-bottom:8px}
+.card p{color:var(--muted)}
+
+.about{padding:50px 18px; text-align:center; max-width:900px; margin:0 auto}
+.about h2{color:var(--brand-orange); font-size:32px; margin-bottom:10px}
+.about p{color:#3f3f3f; line-height:1.8}
+
+
+.site-footer{
+  background: var(--brand-blue); color:#fff; text-align:center; padding:18px; margin-top:30px
+}
+
+@media (max-width: 860px){
+  .highlights{grid-template-columns:1fr}
+  .nav a{margin:0 6px}
+  .brand-text{display:none}
+}
+
+.slider{position:relative;width:100%;max-width:1100px;margin:0 auto;border-radius:18px;overflow:hidden; height:380px}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity .7s ease, transform .7s ease}
+.slide.is-active{opacity:1;transform:scale(1)}
+.dots{position:absolute;left:0;right:0;bottom:14px;display:flex;gap:8px;justify-content:center}
+.dots button{width:10px;height:10px;border-radius:50%;border:none;background:rgba(255,255,255,.6);cursor:pointer}
+.dots button.is-active{background:#fff}
+
+.site-header.scrolled{box-shadow:0 6px 18px rgba(0,0,0,.2);background: linear-gradient(90deg,var(--brand-orange),#ffa94d)}
+
+
+[data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease}
+[data-reveal].is-in{opacity:1;transform:none}
+
+/* Hiệu ứng hiện dần 3 thẻ */
+.highlights {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.highlights .card {
+  width: 100%;
+  max-width: 320px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Khi card xuất hiện trong viewport */
+.highlights .card.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.btn-primary{position:relative;overflow:hidden}
+.btn-ripple{position:absolute;border-radius:50%;pointer-events:none;transform:scale(0);opacity:.35;background:#fff;animation:ripple .6s ease-out}
+@keyframes ripple{to{transform:scale(14);opacity:0}}
+
+
+
+.quick-book{max-width:960px;margin:30px auto;padding:22px;background:#fff;border-radius:18px;box-shadow:0 16px 40px rgba(21,42,131,.10)}
+.quick-book form{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+.quick-book label{display:flex;flex-direction:column;gap:6px;font-weight:600;color:#333}
+.quick-book input,.quick-book select{padding:10px 12px;border:1px solid rgba(0,0,0,.12);border-radius:10px}
+.book-result{margin-top:12px;color:#152a83;font-weight:700}
+@media (max-width:860px){.quick-book form{grid-template-columns:1fr}}
+
+/* ===== Hiệu ứng hiện dần từ trái sang phải ===== */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.highlights .card {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+/* Khi card vào tầm nhìn */
+.highlights .card.is-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* === Làm 3 card to hơn và dài hơn === */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* luôn 3 cột đều nhau */
+  gap: 30px;                              /* khoảng cách giữa 3 khối */
+  max-width: 1200px;                      /* chiều rộng tổng thể lớn hơn */
+  margin: 80px auto;
+  padding: 0 30px;
+}
+
+.highlights .card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 28px;                     /* tăng padding để card dài hơn */
+  min-height: 260px;                      /* đảm bảo chiều cao tối thiểu */
+  box-shadow: 0 16px 50px rgba(21,42,131,0.15);
+  border: 1px solid rgba(21,42,131,0.08);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  transform: translateX(-60px);
+  opacity: 0;
+  transition-delay: var(--delay, 0s);
+}
+
+/* Khi card hiện */
+.highlights .card.is-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Hover nhẹ cho đẹp */
+.highlights .card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Mobile: chuyển về 1 cột */
+@media (max-width: 860px){
+  .highlights {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

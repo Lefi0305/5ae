@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TravelBook – Đặt vé</title>
+  <link rel="stylesheet" href="Datve.css" />
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">TravelBook</div>
+      <nav class="nav">
+        <a href="#" class="nav-link is-active" data-goto="home">Trang chủ</a>
+        <a href="#" class="nav-link" data-goto="booking">Đặt chỗ</a>
+        <a href="#" class="nav-link" data-goto="ticket">Vé</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Stepper -->
+  <div class="container">
+    <div class="stepper" role="tablist" aria-label="Các bước">
+      <div class="step is-active" data-step="1">
+        <span class="dot">1</span>
+        <span class="label">Tìm tuyến</span>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-step="2">
+        <span class="dot">2</span>
+        <span class="label">Chọn chuyến</span>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-step="3">
+        <span class="dot">3</span>
+        <span class="label">Vé của bạn</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <main class="container content">
+
+    <!-- Screen 1: Home -->
+    <section class="panel active" id="screen-home" aria-labelledby="home-title">
+      <div class="grid-2">
+        <div class="hero">
+          <h1 id="home-title">Hi,Bạn</h1>
+          <p class="sub">Kiểm tra vé và chuyến đi của bạn</p>
+
+          <div class="card form">
+            <div class="row">
+              <label class="input">
+                <span class="input-label">From</span>
+                <input type="text" value="Vị trí của tôi" />
+                <button class="icon-btn" aria-label="Tùy chọn">⋯</button>
+              </label>
+              <label class="input">
+                <span class="input-label">To</span>
+                <input type="text" value="Hà Nội" />
+                <button class="icon-btn" aria-label="Tùy chọn">⋯</button>
+              </label>
+            </div>
+
+            <div class="chip-row">
+              <button class="chip">12 tiếng</button>
+              <button class="chip">600 km</button>
+              <button class="chip">20 min</button>
+            </div>
+
+            <div class="actions">
+              <button class="btn primary" data-goto="screen-booking">Tìm chuyến</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card map">
+          <div class="map-inner">
+            <div class="pin pin-a">Vị trí của tôi</div>
+            <div class="pin pin-b">Hà Nội</div>
+            <svg viewBox="0 0 600 300" class="route">
+              <path d="M20,260 C140,40 460,40 580,230" />
+            </svg>
+          </div>
+          <div class="price-note">Giá vé <strong>1.200.000 vnđ</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 2: Booking -->
+    <section class="panel" id="screen-booking" aria-labelledby="booking-title">
+      <div class="panel-head">
+        <h2 id="booking-title">Đặt vé</h2>
+        <div class="filters">
+          <span class="pill">Ngày, Giờ,Giá vé</span>
+          <span class="pill pill-outline">One way</span>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><small>From</small><strong>Vị trí của tôi</strong></div>
+        <div><small>To</small><strong>Hà  Nội</strong></div>
+      </div>
+
+      <div class="list">
+        <div class="trip">
+          <div class="time">11:00</div>
+          <div class="place">
+            <strong>Vị trí của tôi</strong>
+            <small>D 3721 • TP HCM • Ha Noi </small>
+          </div>
+          <div class="price">2.000.000</div>
+        </div>
+        <div class="trip selected">
+          <div class="time">15:03</div>
+          <div class="place">
+            <strong>My location</strong>
+            <small>N 3721 • Madrid • Paris</small>
+          </div>
+          <div class="price">$10</div>
+        </div>
+        <div class="trip">
+          <div class="time">17:00</div>
+          <div class="place">
+            <strong>My location</strong>
+            <small>N 2531 • Berlin • Paris</small>
+          </div>
+          <div class="price">$13</div>
+        </div>
+      </div>
+
+      <div class="paybar">
+        <div class="total">Tổng: <strong>1.200.000 vnđ</strong></div>
+        <div class="pay-actions">
+          <button class="btn" data-goto="screen-home">Quay lại</button>
+          <button class="btn primary" data-goto="screen-ticket">Mua ngay</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: Ticket -->
+    <section class="panel" id="screen-ticket" aria-labelledby="ticket-title">
+      <div class="panel-head">
+        <h2 id="ticket-title">Ticket</h2>
+      </div>
+
+      <div class="ticket grid-2">
+        <div class="ticket-card">
+          <div class="ticket-head">D 3256 Huế -- Hà Nội</div>
+
+          <div class="ticket-body">
+            <div class="col2">
+              <div class="cell center">
+                <div class="big">11:00</div>
+                <div class="mini">Xuất Phát</div>
+              </div>
+              <div class="cell center">
+                <div class="big">5:30</div>
+                <div class="mini">Đến nơi</div>
+              </div>
+            </div>
+
+            <div class="meta">
+              <span>Travel time: 12 tiếng</span>
+              <span class="seat">Seat 27</span>
+            </div>
+
+            <div class="grid">
+              <div><small>Passenger</small><strong>Wesley Karon</strong></div>
+              <div><small>Document ID</small><strong>670 345 765</strong></div>
+            </div>
+
+            <div class="qr-wrap" aria-label="QR code">
+              <svg viewBox="0 0 160 160" class="qr">
+                <rect x="0" y="0" width="160" height="160" rx="8" />
+                <rect x="12" y="12" width="40" height="40"></rect>
+                <rect x="108" y="12" width="40" height="40"></rect>
+                <rect x="12" y="108" width="40" height="40"></rect>
+                <rect x="72" y="72" width="12" height="12"></rect>
+                <rect x="90" y="72" width="12" height="12"></rect>
+                <rect x="72" y="90" width="12" height="12"></rect>
+                <rect x="90" y="90" width="12" height="12"></rect>
+                <rect x="70" y="24" width="10" height="10"></rect>
+                <rect x="125" y="80" width="10" height="10"></rect>
+                <rect x="48" y="120" width="10" height="10"></rect>
+                <rect x="96" y="124" width="8" height="8"></rect>
+              </svg>
+            </div>
+
+            <div class="ticket-actions">
+              <button class="btn">Tải về</button>
+              <button class="btn primary" data-goto="screen-home">Xong</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card tips">
+          <h3>Mẹo sử dụng</h3>
+          <ul>
+            <li>Quét mã QR để lên tàu nhanh hơn.</li>
+            <li>Lưu vé vào Wallet/ảnh để dùng offline.</li>
+            <li>Đến sớm 10 phút để kiểm tra chỗ ngồi.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© 2025 TravelBook</span>
+      <span>Design demo</span>
+    </div>
+  </footer>
+
+  <script src="Datve.js"></script>
+</body>
+</html>
