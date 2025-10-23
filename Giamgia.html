@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mã giảm giá vé tàu </title>
+</head>
+<body>
+    <h1> Giảm giá vé tàu </h1>
+    <label for = "price" > Giá vé (VND): </label>
+    <input type = "number" id = "price"/>
+    <label for = "seatType" > Loại Ghế </label>
+    <select id = "seatType" >
+        <option value = "ghế" > Ghế thường </option>
+        <option value = "giường" > Giường nằm </option>
+        <option value = "vip" > Ghế VIP </option>
+        <option value = "thương gia" > Hạng thương gia </option>
+    </select>
+    <label for = "coupon" > Mã giảm giá :</label>
+    <input type = "text" id = "coupon" placeholdern = " Nhập mã " />
+    <button id = "applyBtn" > Áp dụng mã giảm giá </button>
+    <div id = "massage" class = "message" style = " display:none "> </div>
+    
+    <div class="result"><div>
+        <h2> Kết quả </h2>
+        ><p> <strong>Giá gốc:</strong> <span id="basePrice">₫0</span></p>
+        <p><strong>Giảm giá:</strong> <span id="discount">₫0</span></p>
+        <p> <strong>Giá sau giảm:</strong> <span id="finalPrice">₫0</span></p>
+    </div></div>
+</body>
+   
