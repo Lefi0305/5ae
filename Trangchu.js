@@ -169,17 +169,19 @@ function initQuickBookForm() {
     // bảng giá gốc theo khoảng cách tương đối (đơn vị VND / vé)
     const key = [a,b].sort().join('-');
     const table = {
-      'TP.HCM-HN':       1127000,
-      'H':                110000,
-      'Hue-QuangBinh':    170000,
-      'DaNang-QuangTri':  230000,
-      'DaNang-QuangBinh': 290000,
-      'QuangTri-QuangBinh': 130000
+      'SaiGon-HaNoi':     1127000,
+      'Hue-DaNang':       162000,
+      'Hue-HaNoi':        688000,
+      'Hue-SaiGon':       731000,
+      'Hue-QuangTri':     120000,
+      'QuangTri-DaNang':  200000,
+      'QuangTri-HaNoi':   630000,
+      'QuangTri-SaiGon':  791000
     };
     return table[key] || 150000; // mặc định
   }
   function labelClass(c){ return {standard:'Ghế ngồi', soft:'Ghế mềm', bed:'Giường nằm'}[c] || c; }
-  function labelStation(s){ return {Hue:'Huế', DaNang:'Đà Nẵng', QuangTri:'Quảng Trị', QuangBinh:'Quảng Bình'}[s] || s; }
+  function labelStation(s){ return {Hue:'Huế', DaNang:'Đà Nẵng', QuangTri:'Quảng Trị', HaNoi: 'Hà Nội', SaiGon: 'Sài Gòn'}[s] || s; }
   function formatVND(n){ return n.toLocaleString('vi-VN', {style:'currency', currency:'VND'}); }
   function formatDateVN(d){ const [y,m,day]=d.split('-'); return `${day}/${m}/${y}`; }
 
